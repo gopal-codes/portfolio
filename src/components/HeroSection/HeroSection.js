@@ -8,7 +8,7 @@ import HeroSectionCard from "./HeroSectionCard";
 import { HeroBlurBottom, HeroBlurTop, HeroButton, HeroColoredShape, HeroLeft, HeroProfileImage, HeroRight, HeroRow, HeroShapeContainer, HeroWrapper } from "./HeroSectionStyles";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import FacebookRoundedIcon from "@mui/icons-material/FacebookRounded";
+import GitHubIcon from '@mui/icons-material/GitHub';
 import { FlexColumn } from "../components.style/Flex.style";
 import profileimage from '../Assets/pic.png'
 
@@ -32,7 +32,7 @@ const HeroSection = () => {
             target="_blank" 
             href="https://www.facebook.com/profile.php?id=100043579821554"
             >
-              <FacebookRoundedIcon
+              <GitHubIcon
                 style={{ cursor: "pointer", fontSize: "70px" }}
               />
             </Icons>
