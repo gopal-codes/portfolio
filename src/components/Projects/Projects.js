@@ -19,7 +19,9 @@ import {
   ProjectRight,
   ProjectWrapper,
 } from "./Projects.style";
-import gopal from '../Assets/Gopal.png';
+import ecommerce from '../Assets/ecommerce thumbnail.jpg';
+import socialmedia from '../Assets/socialmedia thumbnail.jpg';
+import Portfolio from '../Assets/portfolio.PNG';
 import { Image } from "../components.style/Image.style";
 
 const Projects = () => {
@@ -52,17 +54,23 @@ const Projects = () => {
         modules={[EffectCoverflow, Pagination]}
         className="mySwiper"
       >
+          <SwiperSlide>
+            <ProjectCard 
+            target="_blank" 
+            href="https://ecommercefrontend.onrender.com/" >
+              <Image src={ecommerce} /> </ProjectCard>
+          </SwiperSlide>
          <SwiperSlide>
-            <ProjectCard><Image src={gopal} /> </ProjectCard>
+            <ProjectCard
+            target="_blank" 
+            href="https://socialmedia-f0xn.onrender.com/"
+            ><Image src={socialmedia} /> </ProjectCard>
           </SwiperSlide>
           <SwiperSlide>
-            <ProjectCard><Image src={gopal} /> </ProjectCard>
-          </SwiperSlide>
-          <SwiperSlide>
-            <ProjectCard><Image src={gopal} /> </ProjectCard>
-          </SwiperSlide>
-          <SwiperSlide>
-            <ProjectCard><Image src={gopal} /> </ProjectCard>
+            <ProjectCard
+            target="_blank"
+            href="https://gopalportfolio.netlify.app/"
+            ><Image src={Portfolio} /> </ProjectCard>
           </SwiperSlide>
 
       </Swiper>

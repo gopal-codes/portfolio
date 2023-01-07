@@ -28,19 +28,25 @@ const HeroSection = () => {
           </H3>
           <HeroButton >Hire me</HeroButton>
           <HeroRow>
-            <Icons>
+            <Icons
+            target="_blank" 
+            href="https://www.facebook.com/profile.php?id=100043579821554"
+            >
               <FacebookRoundedIcon
                 style={{ cursor: "pointer", fontSize: "70px" }}
               />
             </Icons>
-            <Icons>
-            <LinkedInIcon
+            <Icons 
+            target="_blank" 
+            href="https://www.linkedin.com/in/gopal-raut-057a83225" >
+            <LinkedInIcon 
               style={{ cursor: "pointer", fontSize: "70px" }}
             >
             </LinkedInIcon>
-            
             </Icons>
-            <Icons>
+            <Icons
+            target="_blank" 
+            href="https://www.instagram.com/gopalraut123/">
             <InstagramIcon
               style={{ cursor: "pointer", fontSize: "70px" }}
             />

@@ -29,10 +29,10 @@ const Contact = () => {
     e.preventDefault();
 
     if(user.username||user.message||user.email!==""){
-      emailjs.sendForm('service_jxhfrq4', 'template_kk5i53w', form.current, 'w4axqXNSb6qV9dx-P')
+      emailjs.sendForm('service_a9swp1g', 'template_kk5i53w', form.current, 'WShMwHVU4X2yNvyvj')
       .then((result) => {
           console.log(result.text);
-          successtoast("sucessfull")
+          successtoast("Email sent.")
       }, (error) => {
           console.log(error.text);
           errortoast("check your internet")

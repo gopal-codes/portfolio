@@ -24,13 +24,14 @@ import styled from 'styled-components';
         filter:blur(36px);
     `
 
-    export const Icons = styled.div`
+    export const Icons = styled.a`
         & > *{
             color:${props=>props.theme.primaryColor};
         }
     `
 
-    export const Card = styled.div`
+    export const Card = styled.a`
+    cursor:pointer;
     border-radius:15%;
     border-right:3px solid skyblue;
     border-bottom:3px solid skyblue;
