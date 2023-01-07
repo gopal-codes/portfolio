@@ -30,7 +30,7 @@ const HeroSection = () => {
           <HeroRow>
             <Icons
             target="_blank" 
-            href="https://www.facebook.com/profile.php?id=100043579821554"
+            href="https://github.com/gopal-codes"
             >
               <GitHubIcon
                 style={{ cursor: "pointer", fontSize: "70px" }}
