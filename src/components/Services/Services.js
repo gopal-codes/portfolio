@@ -15,7 +15,7 @@ import CelebrationIcon from "@mui/icons-material/Celebration";
 import BugReportIcon from "@mui/icons-material/BugReport";
 import CableIcon from "@mui/icons-material/Cable";
 import { HeroButton } from "../HeroSection/HeroSectionStyles";
-import cv from '../Assets/Gopal_CV.jpg';
+import cv from '../Assets/Gopal_CV.png';
 
 const Services = () => {  
   return (
