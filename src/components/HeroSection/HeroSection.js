@@ -19,7 +19,7 @@ import { useInView } from 'react-intersection-observer';
 const HeroSection = () => {
 
   // this is for animation.
-  const [ref, inView] = useInView({ threshold: 0.1 });
+  const [ref, inView] = useInView({ threshold: 0.01 });
   // here threshold define part of screen component has occupied
   const animateLeft= useSpring(leftAnimateObject(inView))
   const animateRight = useSpring(rightAnimateObject(inView))
