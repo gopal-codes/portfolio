@@ -5,11 +5,20 @@ import { FlexColumn } from '../components.style/Flex.style'
 import { H1, H3 } from '../components.style/SingleUsedcomponent.style'
 import { HeroButton } from '../HeroSection/HeroSectionStyles'
 import {BrandWrapper ,BrandLeft, BrandRight, BrandCircle, SmallCircle, IconBorder, } from './BrandAndCompany.style'
+import { leftAnimateObject, rightAnimateObject} from "../components.style/ReactSpring";
+import {animated, useSpring} from "react-spring";
+import { useInView } from 'react-intersection-observer';
 
 const BrandAndCompany = () => {
+
+  const [ref, inView] = useInView({ threshold: 0.01 });
+  // here threshold define part of screen component has occupied
+  const animateLeft= useSpring(leftAnimateObject(inView))
+  const animateRight = useSpring(rightAnimateObject(inView))
+
   return (
-    <BrandWrapper id="Client">
-        <BrandLeft>
+    <BrandWrapper ref={ref} id="Client">
+        <BrandLeft  as={animated.div} style={animateLeft}>
         <FlexColumn>
           <H1>Works for All these</H1>
           <H1 colored >Brands & Clients</H1>
@@ -22,8 +31,8 @@ const BrandAndCompany = () => {
           <HeroButton>Hire me</HeroButton>
         </FlexColumn>
         </BrandLeft>
-        <BrandRight>
-            <BrandCircle>
+        <BrandRight style={animateRight} as={animated.div}>
+            <BrandCircle >
               <SmallCircle first />
               <SmallCircle second />
              

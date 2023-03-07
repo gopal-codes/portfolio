@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import { Icons } from "../components.style/SingleUsedcomponent.style";
-import {
-  Wrapper
-} from "../components.style/Wrapper.style";
-import { Logo, NavIcons, NavLeft, NavRight,NavText } from "./NavCompoStyles";
+import {Wrapper} from "../components.style/Wrapper.style";
+import { Logo, NavIcons, NavLeft, NavRight,NavText, Section } from "./NavCompoStyles";
 import { Button } from "../components.style/Button.style";
 import ToggleOffIcon from "@mui/icons-material/ToggleOff";
 import ToggleOnIcon from "@mui/icons-material/ToggleOn";
@@ -14,7 +12,7 @@ import {Link} from 'react-scroll';
 import NavDrawer from "./NavDrawer";
 
 const Nav = ({setTheme}) => {
-
+  
   const [btnswitch, setbtnswitch] = useState(false);
   const handleSwitch = () => {
     setTheme(btnswitch)
@@ -22,9 +20,20 @@ const Nav = ({setTheme}) => {
   };
 
   const [Drawer ,setDrawer]= useState(false);
+  const [showScrollUp,setshowScrollUp] = useState(false);
+  const [lastscroll,setlastscroll]= useState(0);
+
+  // this code handles the nav bar position while scrolling.
+  window.addEventListener("scroll",()=>{
+    var scrollTop = window.scrollY ;
+    if(scrollTop > lastscroll){
+      setshowScrollUp(false);}
+    else{setshowScrollUp(true)}
+    setlastscroll(scrollTop);
+  })
 
   return (
-    <>
+    <Section className="section" showScrollUp={showScrollUp} >
     <NavDrawer Drawer={Drawer} setDrawer={setDrawer} />
     <Wrapper>
       <NavLeft>
@@ -62,7 +71,7 @@ const Nav = ({setTheme}) => {
       </NavRight> 
       <NavIcons><Dehaze onClick={()=>setDrawer(!Drawer)} style={{fontSize:"40px"}} /> </NavIcons>
     </Wrapper>
-    </>
+    </Section>
   );
 };
 

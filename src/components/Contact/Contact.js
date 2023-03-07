@@ -12,8 +12,20 @@ import { FlexColumn } from "../components.style/Flex.style";
 import { HeroButton } from "../HeroSection/HeroSectionStyles";
 import { errortoast, successtoast } from "../Toast";
 
+import { leftAnimateObject, rightAnimateObject} from "../components.style/ReactSpring";
+import {animated, useSpring} from "react-spring";
+import { useInView } from 'react-intersection-observer';
+
 
 const Contact = () => {
+
+  // this is for animation.
+  const [ref, inView] = useInView({ threshold: 0.1 });
+  // here threshold define part of screen component has occupied
+  const animateLeft= useSpring(leftAnimateObject(inView))
+  const animateRight = useSpring(rightAnimateObject(inView))
+  // upto here.
+
   const [user, setUser] = useState({
     username: "",
     email: "",
@@ -44,14 +56,14 @@ const Contact = () => {
 
   return (
     <>
-      <ContactWrapper id="Contact">
-        <ContactLeft>
+      <ContactWrapper id="Contact" ref={ref}>
+        <ContactLeft as={animated.div} style={animateLeft}>
           <FlexColumn>
             <H1>Get in Touch</H1>
             <H1 colored>Contact me</H1>
           </FlexColumn>
         </ContactLeft>
-        <ContactRight>
+        <ContactRight as={animated.div} style={animateRight}>
           <FlexColumn>
             <form style={{display:"flex",flexDirection:"column"}} ref={form} onSubmit={sendEmail}>
             <Input

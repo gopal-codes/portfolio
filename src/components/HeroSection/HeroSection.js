@@ -12,16 +12,27 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import { FlexColumn } from "../components.style/Flex.style";
 import profileimage from '../Assets/pic.png'
 
+import { leftAnimateObject, rightAnimateObject} from "../components.style/ReactSpring";
+import {animated, useSpring} from "react-spring";
+import { useInView } from 'react-intersection-observer';
+
 const HeroSection = () => {
 
+  // this is for animation.
+  const [ref, inView] = useInView({ threshold: 0.1 });
+  // here threshold define part of screen component has occupied
+  const animateLeft= useSpring(leftAnimateObject(inView))
+  const animateRight = useSpring(rightAnimateObject(inView))
+  // upto here.
+
   return (
-    <HeroWrapper id="Navbar">
-      <HeroLeft>
+    <HeroWrapper id="Navbar" ref={ref}>
+      <HeroLeft as={animated.div} style={animateLeft}>
         <FlexColumn>
           <H1>Hi! I Am</H1>
           <H1 colored >Gopal Raut</H1>
           <H3>
-            I am a freelancer Frontend Developer,
+            I am a Frontend Developer,
             Experienced in web designing and development,Producing
             quality work. And a Person who can help you to change your ideas
             to reality.
@@ -54,7 +65,7 @@ const HeroSection = () => {
           </HeroRow>
         </FlexColumn>
       </HeroLeft>
-      <HeroRight>
+      <HeroRight as={animated.div} style={animateRight}>
         <HeroSectionCard />
         <HeroBlurTop />
         <HeroShapeContainer>

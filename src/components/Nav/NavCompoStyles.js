@@ -2,6 +2,14 @@ import styled from 'styled-components'
 import { Icons } from '../components.style/SingleUsedcomponent.style'
 import { Left, Right } from '../components.style/Wrapper.style'
 
+export const Section = styled.section`
+position:${({showScrollUp}) => showScrollUp ?"sticky":"relative"};
+top:${({showScrollUp}) => showScrollUp ?"-10px":"-10px"};
+background:${({showScrollUp,theme}) => showScrollUp ?theme.secondaryColor:""};
+z-index:3;
+border-radius:10px;
+`
+
 export const NavLeft = styled(Left)`
     justify-content:start;
     position:relative;

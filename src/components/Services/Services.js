@@ -16,11 +16,22 @@ import BugReportIcon from "@mui/icons-material/BugReport";
 import CableIcon from "@mui/icons-material/Cable";
 import { HeroButton } from "../HeroSection/HeroSectionStyles";
 import cv from '../Assets/Gopal_CV.png';
+import { leftAnimateObject, rightAnimateObject} from "../components.style/ReactSpring";
+import {animated, useSpring} from "react-spring";
+import { useInView } from 'react-intersection-observer';
 
 const Services = () => {  
+
+  // this is for animation.
+  const [ref, inView] = useInView({ threshold: 0.1 });
+  // here threshold define part of screen component has occupied
+  const animateLeft= useSpring(leftAnimateObject(inView))
+  const animateRight = useSpring(rightAnimateObject(inView))
+  // upto here.
+
   return (
-    <ServiceWrapper id="Service">
-      <ServiceLeft>
+    <ServiceWrapper id="Service" ref={ref}>
+      <ServiceLeft as={animated.div} style={animateLeft} >
         <ServiceFlexColumn left >
           <ServiceH1 >My Awesome</ServiceH1>
           <ServiceH1 colored>Service</ServiceH1>
@@ -44,7 +55,7 @@ const Services = () => {
           </LeftCard>
         </ServiceFlexColumn>
       </ServiceLeft>
-      <ServiceRight>
+      <ServiceRight as={animated.div} style={animateRight} >
         <ServiceCard node>
           <ServiceFlexColumn>
             <Icons>
