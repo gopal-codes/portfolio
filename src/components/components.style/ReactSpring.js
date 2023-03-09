@@ -21,12 +21,11 @@ export const rightAnimateObject =(inView,compo)=>{
         from:{
             position:"relative",
             right:inView && !isMobile && "-300px",
-            transform: inView && compo && !isMobile &&  "rotate(45deg)",
-            
+            transform:inView && (!isMobile?compo?"rotate(120deg)" :"scale(1.15) rotate(30deg)": "scale(1.15)") , 
         },
         to:{
             right:"0",
-            transform: "rotate(0deg)",
+            transform: !isMobile? "scale(1) rotate(0deg)": "scale(1)",
         },
         config:{duration:1800,
             friction: 120,
