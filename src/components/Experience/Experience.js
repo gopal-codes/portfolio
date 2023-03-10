@@ -13,14 +13,14 @@ const Experience = () => {
     <ExperienceWrapper>
       <Flexrow>
         <IconCircle>
-          <IconText >2+</IconText>
+          <IconText >1+</IconText>
           <Experiencecolumn >
             <SecondText >years</SecondText>
             <SecondText>Experience</SecondText>
           </Experiencecolumn>
         </IconCircle>
         <IconCircle>
-          <IconText>9+</IconText>
+          <IconText>7+</IconText>
           <Experiencecolumn>
             <SecondText>completed</SecondText>
             <SecondText>Projects</SecondText>

@@ -14,7 +14,7 @@ const BrandAndCompany = () => {
   const [ref, inView] = useInView({ threshold: 0.01 });
   // here threshold define part of screen component has occupied
   const animateLeft= useSpring(leftAnimateObject(inView))
-  const animateRight = useSpring(rightAnimateObject(inView,"brand"))
+  const animateRight = useSpring(rightAnimateObject(inView))
 
   return (
     <BrandWrapper ref={ref} id="Client">

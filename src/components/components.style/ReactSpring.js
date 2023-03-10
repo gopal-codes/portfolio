@@ -14,22 +14,24 @@ return({
     config:{duration:1700}
 })}
 
-export const rightAnimateObject =(inView,compo)=>{
+export const rightAnimateObject =(inView)=>{
     const isMobile = window.matchMedia("(max-width: 767px)").matches;
 
     return({
         from:{
             position:"relative",
+            opacity:inView && "0",
             right:inView && !isMobile && "-300px",
-            transform:inView && (!isMobile?compo?"rotate(120deg)" :"scale(1.15) rotate(30deg)": "scale(1.15)") , 
+            transform:inView && (!isMobile?"scale(1.15) rotate(90deg)" : "scale(1.1)") , 
         },
         to:{
+            opacity:"1",
             right:"0",
-            transform: !isMobile? "scale(1) rotate(0deg)": "scale(1)",
+            transform: !isMobile?"scale(1) rotate(0deg)" : "scale(1)",
         },
-        config:{duration:1800,
-            friction: 120,
-            tension: 120,}
+        config:{duration:1800,}
     })}
+
+
 
    
