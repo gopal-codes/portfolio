@@ -13,7 +13,7 @@ import NavDrawer from "./NavDrawer";
 
 const Nav = ({setTheme}) => {
   
-  const [btnswitch, setbtnswitch] = useState(false);
+  const [btnswitch, setbtnswitch] = useState(true);
   const handleSwitch = () => {
     setTheme(btnswitch)
     setbtnswitch(!btnswitch);

@@ -21,10 +21,30 @@ export const HeroRight = styled(Right)`
     justify-content:end;
     position:relative;
     @media only screen and (max-width: 768px) {
-          margin-top:50px;
+          margin-top:150px;
           display:flex;
           justify-content:center;
     }
+`
+
+export const CanvaContainer = styled.div`
+    position:absolute;
+    top:${({second})=>second?"15%":"5%"};
+    right:${({second})=>second?"-15%":"-25%"};
+    height:80%;
+    width:80%;
+    @media only screen and (max-width: 768px) {
+        height:100%;
+        width:100%;
+        top:${({second})=>second?"30%":"15%"};
+        right:${({second})=>second?"4%":"-4%"};
+       }
+`
+export const BoxCanva = styled.div`
+       position:absolute;
+       right:0;
+       left:0;
+       bottom:10%;
 `
 export const HeroShapeContainer= styled.div`
         display:flex;
@@ -49,14 +69,24 @@ export const HeroShapeContainer= styled.div`
     `
 
     export const HeroBlurTop = styled(Blureffect)`
+        width:14rem;
+        height:5rem;
+        opacity:0.9;
         position:absolute;
-        top:10px;
-        background-color:#edd0ff;
+        bottom:18%;
+        right:2.8%;
+        filter:blur(10px);
+        z-index:3;
+        background-color:${({theme})=>theme && theme.primaryColor};
+        @media only screen and (max-width: 768px) {
+            right:23%;
+            bottom:-12%;
+        }
     `
     export const HeroBlurBottom = styled(Blureffect)`
         position:absolute;
-        bottom:-5%;
-        left:-10%;
+        bottom:-10%;
+        left:-30%;
         background-color:#c1f5ff;
     `
     export const HeroButton = styled(Button)`
@@ -79,20 +109,17 @@ export const HeroShapeContainer= styled.div`
     `
 
     export const HeroProfileImage = styled(Image)`
+            position:relative;
+            margin-top:-150px;
             z-index:2;
-            position:absolute;
             height:400px;
             width:250px;
             display:flex;
             justify-content:end;
             align-items:center;
-            top:-50px;
-            right:50px;
             @media only screen and (max-width: 768px) {
                 display:flex;
                 justify-content:center;
-                right:0px;
-                left:0px;
-                margin:auto auto;
+                margin-top:-50px;
           }
     ` 

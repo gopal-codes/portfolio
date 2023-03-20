@@ -1,20 +1,23 @@
-import React  from 'react';
+import React, { Suspense }  from 'react';
 import {
   H1,
   H3,
   Icons,
 } from "../components.style/SingleUsedcomponent.style";
 import HeroSectionCard from "./HeroSectionCard";
-import { HeroBlurBottom, HeroBlurTop, HeroButton, HeroColoredShape, HeroLeft, HeroProfileImage, HeroRight, HeroRow, HeroShapeContainer, HeroWrapper } from "./HeroSectionStyles";
+import { BoxCanva, CanvaContainer, HeroBlurBottom, HeroBlurTop, HeroButton, HeroLeft, HeroProfileImage, HeroRight, HeroRow, HeroShapeContainer, HeroWrapper } from "./HeroSectionStyles";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from '@mui/icons-material/GitHub';
 import { FlexColumn } from "../components.style/Flex.style";
 import profileimage from '../Assets/pic.png'
 
-import { leftAnimateObject, rightAnimateObject} from "../components.style/ReactSpring";
+import { leftAnimateObject} from "../components.style/ReactSpring";
 import {animated, useSpring} from "react-spring";
 import { useInView } from 'react-intersection-observer';
+import { Canvas } from '@react-three/fiber';
+import {ProfileBackgroundAnimation,BoxAnimation} from '../3dAnimationElement/ProfileBackgroundAnimation';
+import { OrbitControls } from '@react-three/drei';
 
 const HeroSection = () => {
 
@@ -22,7 +25,6 @@ const HeroSection = () => {
   const [ref, inView] = useInView({ threshold: 0.01 });
   // here threshold define part of screen component has occupied
   const animateLeft= useSpring(leftAnimateObject(inView))
-  const animateRight = useSpring(rightAnimateObject(inView))
   // upto here.
 
   return (
@@ -65,13 +67,51 @@ const HeroSection = () => {
           </HeroRow>
         </FlexColumn>
       </HeroLeft>
-      <HeroRight as={animated.div} style={animateRight}>
+
+      <BoxCanva>
+        <Canvas >
+          <OrbitControls enableZoom={false} />
+          <ambientLight intensity={0.4} />
+          <directionalLight position={[10, 30, 10]} />
+          <Suspense fallback={null}>
+            <BoxAnimation enableZoom="false" />
+          </Suspense>
+        </Canvas>
+      </BoxCanva>
+
+      <HeroRight>
+
+      {/* Canva for animation */}
+      <CanvaContainer>
+              <Canvas>
+                <OrbitControls enableZoom={false} />
+                <ambientLight intensity={1} />
+                <spotLight position={[10, 15, 10]} />
+                <Suspense fallback={null}>
+                  <ProfileBackgroundAnimation />
+                </Suspense>
+              </Canvas>
+        </CanvaContainer>
+
         <HeroSectionCard />
         <HeroBlurTop />
         <HeroShapeContainer>
           <HeroProfileImage src={profileimage} />
           {/* <HeroColoredShape backstyle  /> */}
-          <HeroColoredShape />
+          {/* <HeroColoredShape /> */}
+
+          {/* Canva for animation */}
+        <CanvaContainer second>
+              <Canvas>
+                <OrbitControls enableZoom={false} />
+                <ambientLight intensity={1} />
+                <spotLight position={[10, 15, 10]} />
+                <Suspense fallback={null}>
+                  <ProfileBackgroundAnimation second={true} />
+                </Suspense>
+              </Canvas>
+        </CanvaContainer>
+
         </HeroShapeContainer>
         <HeroBlurBottom />
       </HeroRight>

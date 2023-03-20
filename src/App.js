@@ -12,7 +12,7 @@ import Contact from "./components/Contact/Contact.js";
 import Fotter from "./components/Fotter/Fotter.js";
 
 function App() {
-  const [themeColor,setTheme]= useState(true);
+  const [themeColor,setTheme]= useState(false);
 
   return (
     <>
