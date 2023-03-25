@@ -45,6 +45,9 @@ export const BoxCanva = styled.div`
        right:0;
        left:0;
        bottom:10%;
+       @media only screen and (max-width: 769px){
+        bottom:-25px;    
+    };
 `
 export const HeroShapeContainer= styled.div`
         display:flex;
