@@ -1,4 +1,4 @@
-import { MeshDistortMaterial, Sphere, Stars, } from '@react-three/drei'
+import { MeshDistortMaterial, Sphere } from '@react-three/drei'
 import React,{ useRef, useState } from 'react'
 import { useTheme } from 'styled-components'
 import {useFrame } from "@react-three/fiber";
