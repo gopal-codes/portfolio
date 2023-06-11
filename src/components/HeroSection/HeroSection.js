@@ -40,7 +40,7 @@ const HeroSection = () => {
             to reality.
           </H3>
           <HeroButton >Hire me</HeroButton>
-          <HeroRow>
+          <HeroRow style={{zIndex:"10"}}>
             <Icons
             target="_blank" 
             href="https://github.com/gopal-codes"
@@ -88,7 +88,7 @@ const HeroSection = () => {
                 <ambientLight intensity={1} />
                 <spotLight position={[10, 15, 10]} />
                 <Suspense fallback={null}>
-                  <ProfileBackgroundAnimation />
+                  <ProfileBackgroundAnimation  />
                 </Suspense>
               </Canvas>
         </CanvaContainer>

@@ -37,7 +37,7 @@ export const BoxAnimation = () => {
       scale="3.5"
       onPointerOver={(e) => setHover(true)}
       onPointerOut={(e) => setHover(false)}>
-      <Stars />
+      {/* <Stars /> */}
       <boxGeometry />
       <meshLambertMaterial  color={theme.primaryColor} />
     </mesh>

@@ -12,8 +12,15 @@ const Experience = () => {
   return (
     <ExperienceWrapper>
       <Flexrow>
-        <IconCircle>
+      <IconCircle>
           <IconText >1+</IconText>
+          <Experiencecolumn>
+            <SecondText>Company</SecondText>
+            <SecondText>Work</SecondText>
+          </Experiencecolumn>
+        </IconCircle>
+        <IconCircle>
+          <IconText >2+</IconText>
           <Experiencecolumn >
             <SecondText >years</SecondText>
             <SecondText>Experience</SecondText>
@@ -26,13 +33,7 @@ const Experience = () => {
             <SecondText>Projects</SecondText>
           </Experiencecolumn>
         </IconCircle>
-        <IconCircle>
-          <IconText >0+</IconText>
-          <Experiencecolumn>
-            <SecondText>Company</SecondText>
-            <SecondText>Work</SecondText>
-          </Experiencecolumn>
-        </IconCircle>
+        
       </Flexrow>
     </ExperienceWrapper>
   );
