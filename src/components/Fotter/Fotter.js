@@ -7,7 +7,7 @@ const Fotter = () => {
         <FotterWrapper>
           <FotterText>gopalraut9840285859@gmail.com</FotterText>
           <FotterText>+977-9840285859</FotterText>
-          <FotterText>Tinkuna, kathmandu-32</FotterText>
+          <FotterText>Tinkune, kathmandu-32</FotterText>
         </FotterWrapper>
     </>
   )
